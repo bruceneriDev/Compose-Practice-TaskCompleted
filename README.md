@@ -25,3 +25,5 @@ As part of the "Android Basics with Compose" curriculum, this project aimed to s
 - Building clean, readable interfaces matching a UI specification  
 
 ## Final Screenshot
+![Screenshot_20250812_215229_Compose Practice Task Completed](https://github.com/user-attachments/assets/d6bb353e-667d-4b61-8b5a-69d58ce5a3f2)
+

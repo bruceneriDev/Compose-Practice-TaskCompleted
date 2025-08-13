@@ -63,6 +63,7 @@ fun TaskCompleted(message: String,
             contentDescription = null,
             alignment = Alignment.Center
         )
+        //TEST
         Text(
             text = message,
             fontSize = 24.sp,

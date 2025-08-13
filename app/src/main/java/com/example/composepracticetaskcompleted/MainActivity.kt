@@ -6,8 +6,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -36,7 +39,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ComposeTaskCompleted()
+                    TaskCompletedScreen()
                 }
             }
         }
@@ -44,38 +47,28 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ComposeTaskCompleted() {
-    TaskCompleted(
-        message = stringResource(R.string.all_tasks_completed),
-        string = stringResource(R.string.nice_work),
-        imagePainter = painterResource(R.drawable.ic_task_completed)
-    )
-}
-
-@Composable
-fun TaskCompleted(message: String,
-                  string: String,
-                  imagePainter: Painter,
-                  modifier: Modifier = Modifier) {
-    Column(modifier = modifier) {
+fun TaskCompletedScreen() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        val image = painterResource(R.drawable.ic_task_completed)
         Image(
-            painter = imagePainter,
-            contentDescription = null,
-            alignment = Alignment.Center
-        )
-        //TEST
-        Text(
-            text = message,
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)
+            painter = image,
+            contentDescription = null
         )
         Text(
-            text = string,
-            fontSize = 16.sp,
-            modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+            text = stringResource(R.string.all_tasks_completed),
+            modifier = Modifier.padding(top = 24.dp, bottom = 8.dp),
+            fontWeight = FontWeight.Bold
         )
-
+        Text(
+            text = stringResource(R.string.nice_work),
+            fontSize = 16.sp
+        )
     }
 }
 
@@ -83,6 +76,6 @@ fun TaskCompleted(message: String,
 @Composable
 fun TaskCompletedPreview() {
     ComposePracticeTaskCompletedTheme {
-        ComposeTaskCompleted();
+        TaskCompletedScreen();
     }
 }
